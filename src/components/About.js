@@ -1,44 +1,80 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 export default class About extends Component {
   render() {
     let resumeData = this.props.resumeData;
     return (
       <section id="about">
-         <div className="row">
-
-            <div className="three columns">
-
-               <img className="profile-pic"  src="images/profilepic.jpg" alt="" />
-
-            </div>
-
-            <div className="nine columns main-col">
-
-               <h2>About Me</h2>
-               <p>
-               {
-                 resumeData.aboutme
-               }
-               </p>
-
-               <div className="row">
-
-                  <div className="columns contact-details">
-
-                  <h2>Contact Details</h2>
-                  <p className="address">
-       						<span>{resumeData.name}</span>
-                     <br></br>
-       						   <span>
-                     {resumeData.address}
-                    </span>
-                    <br></br>
-                    <span>{resumeData.website}</span>
-       					   </p>
+        <div className="row">
+          <div className="twelve columns centered main-col">
+            <h2>About Me</h2>
+            <p>{resumeData.aboutme}</p>
+          </div>
+        </div>
+        <div className="row">
+          <div className="nine columns centered main-col">
+            <h2>Below you'll find a list of some of my skills:</h2>
+          </div>
+        </div>
+        <br />
+        <div className="row">
+          <div className="nine columns centered main-col ">
+            <h2>FRONT-END:</h2>
+          </div>
+        </div>
+        <br />
+        <div className="row">
+          <div className="ten columns centered main-col ">
+            <div className="bgrid-sixths">
+              {resumeData.frontend.map(item => {
+                return (
+                  <div className="two columns ">
+                    <img src={item} />
                   </div>
-               </div>
+                );
+              })}
             </div>
-         </div>
+          </div>
+        </div>
+        <br />
+        <div className="row">
+          <div className="nine columns centered main-col">
+            <h2>BACK-END:</h2>
+          </div>
+        </div>
+        <br />
+        <div className="row">
+          <div className="ten columns centered main-col">
+            <div className="bgrid-sixths">
+              {resumeData.backend.map(item => {
+                return (
+                  <div className="two columns ">
+                    <img src={item} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
+        <br />
+        <div className="row">
+          <div className="nine columns centered main-col">
+            <h2>OTHERS:</h2>
+          </div>
+        </div>
+        <br />
+        <div className="row">
+          <div className="ten columns centered main-col">
+            <div className="bgrid-sixths">
+              {resumeData.others.map(item => {
+                return (
+                  <div className="two columns ">
+                    <img src={item} />
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </div>
       </section>
     );
   }
